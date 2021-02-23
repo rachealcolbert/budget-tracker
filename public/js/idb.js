@@ -1,6 +1,6 @@
 let db;
 
-const request = indexedDB.open('budget-tracker', 1);
+const request = indexedDB.open('budget_tracker', 1);
 request.onupgradeneeded = function (event) {
     const db = event.target.result;
     db.createObjectStore('new_transaction', {
@@ -10,7 +10,9 @@ request.onupgradeneeded = function (event) {
 
 request.onsuccess = function (event) {
     db = event.target.result;
-    if (navigator.online) {}
+    if (navigator.onLine) {
+        uploadTransaction;
+    }
 };
 
 request.onerror = function (event) {
@@ -21,7 +23,7 @@ function saveRecord(record) {
     const transaction = db.transaction(['new_transaction'], 'readwrite');
     const transactionObjectStore = transaction.objectStore('new_transaction');
     transactionObjectStore.add(record);
-};
+}
 
 function uploadTransaction() {
     const transaction = db.transaction(['new_transaction'], 'readwrite');
@@ -29,7 +31,7 @@ function uploadTransaction() {
     const getAll = transactionObjectStore.getAll();
     getAll.onsuccess = function () {
         if (getAll.result.length > 0) {
-            fetch('/public/js/index.js', {
+            fetch('public/js/index.js', {
                     method: 'POST',
                     body: JSON.stringify(getAll.results),
                     headers: {
@@ -50,9 +52,9 @@ function uploadTransaction() {
                 })
                 .catch(err => {
                     console.log(err);
-                })
+                });
         }
-    }
-};
+    };
+}
 
 window.addEventListener('online', uploadTransaction);
