@@ -22,23 +22,23 @@
             "type": "image/png"
         },
         {
-            "src": "public/icons/icon-151x152.png",
-            "sizes": "144x144",
+            "src": "public/icons/icon-152x152.png",
+            "sizes": "152x152",
             "type": "image/png"
         },
         {
             "src": "public/icons/icon-192x192.png",
-            "sizes": "144x144",
+            "sizes": "192x192",
             "type": "image/png"
         },
         {
             "src": "public/icons/icon-384x384.png",
-            "sizes": "144x144",
+            "sizes": "384x382",
             "type": "image/png"
         },
         {
             "src": "public/icons/icon-512x512.png",
-            "sizes": "144x144",
+            "sizes": "512x512",
             "type": "image/png"
         }
     ],
