@@ -135,10 +135,6 @@ function sendTransaction(isAdding) {
     .catch(err => {
       console.log(err);
       saveRecord(formData);
-
-      // clear form
-      nameEl.value = "";
-      amountEl.value = "";
     });
 }
 
